@@ -5,7 +5,6 @@
 using namespace std;
 struct  Tree
 {
-    int id;
     int left;
     int right;
     int parent;
