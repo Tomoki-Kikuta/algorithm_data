@@ -11,7 +11,7 @@ void counting_sort(void){
         C[i] += C[i-1];
     }
     for(int j=n-1;j>=0;j--){
-        B[C[A[j]]] = A[j];
+        B[C[A[j]]-1] = A[j];
         C[A[j]]--;
     }
 }
@@ -22,8 +22,8 @@ int main(void){
         //cout << A[i] << endl;
     }
     counting_sort();
-    for(int i=1;i<=n;i++){
-        if(i!=1){
+    for(int i=0;i<n;i++){
+        if(i!=0){
             cout << ' ';
         }
         cout << B[i];
