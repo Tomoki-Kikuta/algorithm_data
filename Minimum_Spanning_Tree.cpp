@@ -6,11 +6,10 @@
 using namespace std;
 int n,A[MAX][MAX];
 int Minimum_Spanning_Tree(void){
-    int color[MAX],d[MAX],parent[MAX],vertices,mincost;
+    int color[MAX],d[MAX],vertices,mincost;
     for(int i=0;i<n;i++){
         color[i] = 0;
         d[i] = INF;
-        parent[i] = NIL;
     }
     d[0] = 0;
     while(true){
@@ -30,16 +29,13 @@ int Minimum_Spanning_Tree(void){
             if(color[i]!=1 && A[vertices][i] != INF){
                 if(A[vertices][i] < d[i]){
                     d[i] = A[vertices][i];
-                    parent[i] = vertices;
                 }
             }
         }
     }
     int sum = 0;
     for(int i=0;i<n;i++){
-        if(parent[i]!=NIL){
-            sum += A[i][parent[i]];
-        }
+        sum += d[i];
     }
     return sum;
 }
