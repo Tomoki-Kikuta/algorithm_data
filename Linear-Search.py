@@ -3,11 +3,14 @@ class Search():
         self.sum = 0
         self.N = N
         self.input_S = input_S
+        input_S.append(0)
     def search(self,key):
-        for i in range(self.N):
-            if key == self.input_S[i]:
-                self.sum += 1
-                break 
+        self.input_S[self.N] = key
+        i = 0
+        while(self.input_S[i]!=key):
+            i += 1
+        if i != self.N:
+            self.sum += 1
 def main():
     N = int(input())
     input_S = [int(i) for i in input().split()]
